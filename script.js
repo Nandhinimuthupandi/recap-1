@@ -1,7 +1,8 @@
-let element = document.getElementById("demo");
+let element = document.querySelector(".demo");
 
 async function holidays(){
-    let data = await fetch("https://holidays.abstractapi.com/v1/?api_key=e4851a57ecd74fdb9eb8f24e51543d3c&country=US&year=2020&month=12&day=25")
+    try{
+        let data = await fetch("https://holidays.abstractapi.com/v1/?api_key=e4851a57ecd74fdb9eb8f24e51543d3c&country=US&year=2020&month=12&day=25")
     let response = await data.json()
     console.log(response);
     response.forEach((value)=>{
@@ -19,6 +20,11 @@ async function holidays(){
           </div>
         `
     })
+
+    }
+    catch(error){
+        console.log("error")
+    }
         
     
 }
